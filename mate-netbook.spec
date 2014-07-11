@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_with	gtk3		# use GTK+ 3.x instead of 2.x
+
 Summary:	Simple window management tool
 Summary(pl.UTF-8):	Proste narzędzie do zarządzania oknami
 Name:		mate-netbook
@@ -12,12 +16,16 @@ BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	gettext-devel >= 0.10.40
 BuildRequires:	glib2-devel >= 2.0
-BuildRequires:	gtk+2-devel >= 2.0
+%{!?with_gtk3:BuildRequires:	gtk+2-devel >= 2.0}
+%{?with_gtk3:BuildRequires:	gtk+3-devel >= 3.0}
 BuildRequires:	intltool >= 0.34
 BuildRequires:	libfakekey-devel
 BuildRequires:	libtool >= 1:1.4.3
-BuildRequires:	libunique-devel >= 1.0
-BuildRequires:	libwnck2-devel >= 1.0
+%{!?with_gtk3:BuildRequires:	libunique-devel >= 1.0}
+%{?with_gtk3:BuildRequires:	libunique3-devel >= 3.0}
+%{?with_gtk3:BuildRequires:	libwnck-devel >= 3.0}
+%{!?with_gtk3:BuildRequires:	libwnck2-devel >= 1.0}
+BuildRequires:	mate-desktop-devel
 BuildRequires:	mate-panel-devel
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.36
@@ -58,7 +66,8 @@ Proste narzędzie do zarządzania oknami, które:
 %{__autoheader}
 %{__automake}
 %configure \
-	--disable-silent-rules
+	--disable-silent-rules \
+	%{?with_gtk3:--with-gtk=3.0}
 
 %{__make}
 
@@ -70,8 +79,6 @@ rm -rf $RPM_BUILD_ROOT
 
 # mate < 1.5 did not exist in PLD, avoid dependency on mate-conf
 %{__rm} $RPM_BUILD_ROOT%{_datadir}/MateConf/gsettings/mate-maximus.convert
-
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/cmn
 
 %find_lang %{name}
 
