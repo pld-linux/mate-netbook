@@ -5,12 +5,12 @@
 Summary:	Simple window management tool
 Summary(pl.UTF-8):	Proste narzędzie do zarządzania oknami
 Name:		mate-netbook
-Version:	1.8.0
+Version:	1.8.1
 Release:	1
 License:	GPL v3
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.8/%{name}-%{version}.tar.xz
-# Source0-md5:	416f125710065e2f97f69d717d30c19a
+# Source0-md5:	12d58c28b3616af9bd1657c4fbb5081a
 URL:		http://mate-desktop.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.9
@@ -102,3 +102,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/glib-2.0/schemas/org.mate.panel.applet.mate-window-picker-applet.gschema.xml
 %{_datadir}/mate-panel/applets/org.mate.panel.MateWindowPicker.mate-panel-applet
 %{_datadir}/mate-panel/ui/mate-window-picker-applet-menu.xml
+%{_mandir}/man1/mate-maximus.1*
