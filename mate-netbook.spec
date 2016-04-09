@@ -5,12 +5,12 @@
 Summary:	Simple window management tool
 Summary(pl.UTF-8):	Proste narzędzie do zarządzania oknami
 Name:		mate-netbook
-Version:	1.12.0
+Version:	1.14.0
 Release:	1
 License:	GPL v3
 Group:		X11/Applications
-Source0:	http://pub.mate-desktop.org/releases/1.12/%{name}-%{version}.tar.xz
-# Source0-md5:	6f0defebd87cda3db94b3d16f699c574
+Source0:	http://pub.mate-desktop.org/releases/1.14/%{name}-%{version}.tar.xz
+# Source0-md5:	b4610466829f28e95e47d5662f97d2f9
 URL:		http://mate-desktop.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.9
@@ -79,8 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-# mate < 1.5 did not exist in PLD, avoid dependency on mate-conf
-%{__rm} $RPM_BUILD_ROOT%{_datadir}/MateConf/gsettings/mate-maximus.convert
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{frp,jv}
 
 %find_lang %{name}
 
