@@ -5,12 +5,12 @@
 Summary:	Simple window management tool
 Summary(pl.UTF-8):	Proste narzędzie do zarządzania oknami
 Name:		mate-netbook
-Version:	1.14.0
+Version:	1.16.0
 Release:	1
 License:	GPL v3
 Group:		X11/Applications
-Source0:	http://pub.mate-desktop.org/releases/1.14/%{name}-%{version}.tar.xz
-# Source0-md5:	b4610466829f28e95e47d5662f97d2f9
+Source0:	http://pub.mate-desktop.org/releases/1.16/%{name}-%{version}.tar.xz
+# Source0-md5:	382964cf7b7ffb10dceae86632f956eb
 URL:		http://mate-desktop.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.9
@@ -21,11 +21,8 @@ BuildRequires:	glib2-devel >= 1:2.36.0
 BuildRequires:	intltool >= 0.50.1
 BuildRequires:	libfakekey-devel
 BuildRequires:	libtool >= 1:1.4.3
-%{!?with_gtk3:BuildRequires:	libunique-devel >= 1.0}
-%{?with_gtk3:BuildRequires:	libunique3-devel >= 3.0}
 %{?with_gtk3:BuildRequires:	libwnck-devel >= 3.0}
 %{!?with_gtk3:BuildRequires:	libwnck2-devel >= 1.0}
-BuildRequires:	mate-desktop-devel >= 1.9.0
 BuildRequires:	mate-panel-devel
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.36
@@ -34,7 +31,6 @@ BuildRequires:	xorg-lib-libXtst-devel
 BuildRequires:	xz
 Requires(post,postun):	glib2 >= 1:2.36.0
 Requires:	glib2 >= 1:2.36.0
-Requires:	mate-desktop-libs >= 1.9.0
 Requires:	mate-panel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
