@@ -2,7 +2,7 @@ Summary:	Simple window management tool
 Summary(pl.UTF-8):	Proste narzędzie do zarządzania oknami
 Name:		mate-netbook
 Version:	1.20.1
-Release:	1
+Release:	2
 License:	GPL v3
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.20/%{name}-%{version}.tar.xz
@@ -28,6 +28,10 @@ Requires:	glib2 >= 1:2.50.0
 Requires:	gtk+3 >= 3.22
 Requires:	mate-panel >= 1.17.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+# use the same libexecdir as mate-panel
+# (better solution: store mate-panel libexecdir in libmatepanelapplet-*.pc and read it here)
+%define		matepanel_libexecdir	%{_libexecdir}/mate-panel
 
 %description
 A simple window management tool which:
@@ -59,6 +63,7 @@ Proste narzędzie do zarządzania oknami, które:
 %{__autoheader}
 %{__automake}
 %configure \
+	--libexecdir=%{matepanel_libexecdir} \
 	--disable-silent-rules
 
 %{__make}
@@ -86,7 +91,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/mate-maximus
-%attr(755,root,root) %{_libexecdir}/mate-window-picker-applet
+%attr(755,root,root) %{matepanel_libexecdir}/mate-window-picker-applet
 /etc/xdg/autostart/mate-maximus-autostart.desktop
 %{_datadir}/dbus-1/services/org.mate.panel.applet.MateWindowPickerFactory.service
 %{_datadir}/glib-2.0/schemas/org.mate.maximus.gschema.xml
