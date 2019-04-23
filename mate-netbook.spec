@@ -1,12 +1,12 @@
 Summary:	Simple window management tool
 Summary(pl.UTF-8):	Proste narzędzie do zarządzania oknami
 Name:		mate-netbook
-Version:	1.22.0
+Version:	1.22.1
 Release:	1
 License:	GPL v3
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.22/%{name}-%{version}.tar.xz
-# Source0-md5:	267f86cac6ceb11c5ec237e07e3f413d
+# Source0-md5:	10d7a8000b6c7747c2e3327b4d0f6c55
 URL:		http://mate-desktop.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.9
