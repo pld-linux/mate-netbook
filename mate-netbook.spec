@@ -7,7 +7,7 @@ License:	GPL v3
 Group:		X11/Applications
 Source0:	https://pub.mate-desktop.org/releases/1.26/%{name}-%{version}.tar.xz
 # Source0-md5:	9eb98f9009b7b3791da3965130e3e100
-URL:		http://mate-desktop.org/
+URL:		https://wiki.mate-desktop.org/mate-desktop/components/mate-netbook/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	gettext-tools >= 0.19.8
@@ -19,6 +19,7 @@ BuildRequires:	libwnck-devel >= 3.0
 BuildRequires:	mate-panel-devel >= 1.17.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.36
+BuildRequires:	rpmbuild(macros) >= 1.592
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xorg-lib-libXtst-devel
 BuildRequires:	xz
